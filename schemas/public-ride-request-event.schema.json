@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/wpggLabs/PactRide/main/schemas/public-ride-request-event.schema.json",
+  "title": "PactRide Public Ride Request Event",
+  "description": "Whole-envelope validator for a public ride.request. Public discovery events cannot carry extensions or undeclared top-level fields.",
+  "allOf": [
+    { "$ref": "event-envelope.schema.json" },
+    {
+      "type": "object",
+      "properties": {
+        "type": { "const": "ride.request" },
+        "payload": { "$ref": "ride-request.schema.json" }
+      },
+      "required": ["type", "ride_id", "ttl_seconds", "payload"],
+      "not": { "required": ["extensions"] }
+    }
+  ]
+}

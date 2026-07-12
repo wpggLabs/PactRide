@@ -1,0 +1,48 @@
+name: Research question
+description: Investigate an unresolved technical, safety, privacy, or adoption question
+title: "[Research]: "
+labels:
+  - research
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Research question
+      description: State one answerable question.
+    validations:
+      required: true
+  - type: textarea
+    id: importance
+    attributes:
+      label: Why it matters
+      description: Which protocol decision depends on this answer?
+    validations:
+      required: true
+  - type: textarea
+    id: known
+    attributes:
+      label: Existing evidence and prior art
+      description: Link primary sources, implementations, papers, or measurements.
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Proposed method
+      description: Experiment, simulation, review, interview, or implementation test.
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Expected output
+      description: What artifact or decision will close this issue?
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Data safety
+      options:
+        - label: This research does not require publishing real identities, exact trips, or private keys.
+          required: true

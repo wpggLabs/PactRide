@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/wpggLabs/PactRide/main/schemas/ride-request.schema.json",
+  "title": "PactRide Public Ride Request Payload",
+  "description": "Privacy-safe public request payload. Geohash precision is derived from string length, and ride windows use a start plus positive duration so contradictory ranges cannot be represented.",
+  "type": "object",
+  "required": ["pickup", "window", "party"],
+  "properties": {
+    "pickup": { "$ref": "#/$defs/coarseLocation" },
+    "destination": { "$ref": "#/$defs/coarseLocation" },
+    "window": {
+      "type": "object",
+      "required": ["not_before", "duration_seconds"],
+      "properties": {
+        "not_before": { "type": "integer", "minimum": 0 },
+        "duration_seconds": {
+          "type": "integer",
+          "minimum": 60,
+          "maximum": 86400
+        }
+      },
+      "additionalProperties": false
+    },
+    "party": {
+      "type": "object",
+      "required": ["seats"],
+      "properties": {
+        "seats": { "type": "integer", "minimum": 1, "maximum": 12 },
+        "wheelchair_accessible_required": { "type": "boolean" },
+        "service_animal": { "type": "boolean" },
+        "luggage": {
+          "enum": ["none", "small", "medium", "large", "oversized"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "terms_hint": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "maximum": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]{1,2})?$"
+        },
+        "negotiable": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "coarseLocation": {
+      "type": "object",
+      "required": ["geohash"],
+      "properties": {
+        "geohash": {
+          "type": "string",
+          "pattern": "^[0123456789bcdefghjkmnpqrstuvwxyz]{3,6}$"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

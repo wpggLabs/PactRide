@@ -1,0 +1,769 @@
+{
+  "profile": "pactride-protocol-event-types-v0.1",
+  "valid": [
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "driver.availability",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-driver-B-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "availability_id": "01JAVAILABILITY01",
+        "service_cells": [
+          "dr5x1"
+        ],
+        "window": {
+          "not_before": 1783742400,
+          "duration_seconds": 3600
+        },
+        "vehicle_summary": {
+          "category": "compact-suv",
+          "seats_available": 3
+        }
+      },
+      "proofs": [
+        {
+          "signer": "npub-driver-B-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "ttl_seconds": 900
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "ride.withdraw",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-rider-A-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "request_event_id": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+        "reason": "changed-plans"
+      },
+      "proofs": [
+        {
+          "signer": "npub-rider-A-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE",
+      "ttl_seconds": 600
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "ride.offer",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-driver-B-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "offer_id": "01JOFFEREXAMPLE1",
+        "pickup_eta_seconds": 420,
+        "terms": {
+          "amount": "28.00",
+          "currency": "USD",
+          "settlement_methods": [
+            "cash"
+          ]
+        },
+        "vehicle_summary": {
+          "category": "compact-suv",
+          "seats_available": 3
+        },
+        "evidence_refs": []
+      },
+      "proofs": [
+        {
+          "signer": "npub-driver-B-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE"
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "ride.counter",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-rider-A-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "terms": {
+          "amount": "28.00",
+          "currency": "USD",
+          "settlement_methods": [
+            "cash"
+          ]
+        },
+        "terms_hash": "sha256:2222222222222222222222222222222222222222222222222222222222222222"
+      },
+      "proofs": [
+        {
+          "signer": "npub-rider-A-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE"
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "identity.binding",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-rider-A-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "request_event_id": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+        "discovery_key": "npub-discovery-0000",
+        "identity_key": "npub-rider-A-000000",
+        "scope": "single-ride",
+        "valid_for_seconds": 1800
+      },
+      "proofs": [
+        {
+          "signer": "npub-discovery-0000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "signer": "npub-rider-A-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE",
+      "ttl_seconds": 1800
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "ride.accept",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-driver-B-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "terms_hash": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+        "rider": "npub-rider-A-000000",
+        "driver": "npub-driver-B-000000"
+      },
+      "proofs": [
+        {
+          "signer": "npub-driver-B-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE"
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "ride.decline",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-rider-A-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "offer_id": "01JOFFEREXAMPLE1",
+        "reason": "terms"
+      },
+      "proofs": [
+        {
+          "signer": "npub-rider-A-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE"
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "ride.cancel",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-rider-A-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "last_recognized_state": "Matching",
+        "reason": "changed-plans",
+        "external_help_requested": false
+      },
+      "proofs": [
+        {
+          "signer": "npub-rider-A-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE"
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "driver.departing",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-driver-B-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "departed_at": 1783742800,
+        "eta_seconds": 420
+      },
+      "proofs": [
+        {
+          "signer": "npub-driver-B-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE"
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "driver.arrived",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-driver-B-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "arrived_at": 1783743250,
+        "arrival_zone": "dr5x1"
+      },
+      "proofs": [
+        {
+          "signer": "npub-driver-B-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE"
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "pickup.challenge",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-rider-A-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "challenge_hash": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+        "methods": [
+          "qr",
+          "short-phrase"
+        ],
+        "expires_at": 1783743400
+      },
+      "proofs": [
+        {
+          "signer": "npub-rider-A-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE"
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "pickup.proof",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-rider-A-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "challenge_hash": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+        "rider": "npub-rider-A-000000",
+        "driver": "npub-driver-B-000000",
+        "verified_at": 1783743300,
+        "methods": [
+          "qr"
+        ]
+      },
+      "proofs": [
+        {
+          "signer": "npub-rider-A-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "signer": "npub-driver-B-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE"
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "ride.started",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-driver-B-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "pickup_proof_hash": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+        "started_at": 1783743310
+      },
+      "proofs": [
+        {
+          "signer": "npub-driver-B-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE"
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "ride.progress",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-driver-B-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "observed_at": 1783744000,
+        "status": "in-progress",
+        "coarse_zone": "dr5ru"
+      },
+      "proofs": [
+        {
+          "signer": "npub-driver-B-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE"
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "ride.abort",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-rider-A-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "last_recognized_state": "InProgress",
+        "reason": "counterparty-requested-stop",
+        "external_help_requested": false
+      },
+      "proofs": [
+        {
+          "signer": "npub-rider-A-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE"
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "ride.completed.claim",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-driver-B-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "rider": "npub-rider-A-000000",
+        "driver": "npub-driver-B-000000",
+        "accepted_terms_hash": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+        "pickup_proof_hash": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+        "started_at": 1783743300,
+        "completed_at": 1783745100,
+        "completion_zone": "dr5ru",
+        "settlement": {
+          "status": "declared-complete",
+          "method": "cash",
+          "amount": "28.00",
+          "currency": "USD"
+        }
+      },
+      "proofs": [
+        {
+          "signer": "npub-driver-B-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE"
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "ride.completed.receipt",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-driver-B-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "rider": "npub-rider-A-000000",
+        "driver": "npub-driver-B-000000",
+        "accepted_terms_hash": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+        "pickup_proof_hash": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+        "started_at": 1783743300,
+        "completed_at": 1783745100,
+        "completion_zone": "dr5ru",
+        "settlement": {
+          "status": "declared-complete",
+          "method": "cash",
+          "amount": "28.00",
+          "currency": "USD"
+        }
+      },
+      "proofs": [
+        {
+          "signer": "npub-rider-A-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "signer": "npub-driver-B-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE"
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "ride.disputed",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-rider-A-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "disputed_event_ids": [
+          "sha256:5555555555555555555555555555555555555555555555555555555555555555",
+          "sha256:6666666666666666666666666666666666666666666666666666666666666666"
+        ],
+        "reason": "conflicting-completion-claims"
+      },
+      "proofs": [
+        {
+          "signer": "npub-rider-A-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE"
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "ride.rating",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-rider-A-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "receipt_event_id": "sha256:7777777777777777777777777777777777777777777777777777777777777777",
+        "subject": "npub-driver-B-000000",
+        "dimensions": {
+          "reliability": 5
+        }
+      },
+      "proofs": [
+        {
+          "signer": "npub-rider-A-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "ride_id": "01JPACTRIDEEXAMPLE"
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "identity.attestation",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-community-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "issuer": "npub-community-000000",
+        "subject": "npub-driver-B-000000",
+        "issued_at": 1783742400,
+        "expires_at": 1815278400,
+        "claims": [
+          {
+            "name": "community-membership",
+            "value": "active",
+            "method": "in-person-check"
+          }
+        ],
+        "revocation_ref": "pactride:revocations:community-a",
+        "evidence_uri": null
+      },
+      "proofs": [
+        {
+          "signer": "npub-community-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "vehicle.attestation",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-community-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "issuer": "npub-community-000000",
+        "subject": "npub-driver-B-000000",
+        "vehicle_ref": "vehicle:local:example",
+        "issued_at": 1783742400,
+        "expires_at": 1815278400,
+        "claims": [
+          {
+            "name": "inspection",
+            "value": "observed",
+            "method": "in-person-check"
+          }
+        ],
+        "revocation_ref": "pactride:revocations:community-a"
+      },
+      "proofs": [
+        {
+          "signer": "npub-community-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "credential.revocation",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-community-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "credential_event_id": "sha256:8888888888888888888888888888888888888888888888888888888888888888",
+        "revoked_at": 1783742500,
+        "reason": "superseded"
+      },
+      "proofs": [
+        {
+          "signer": "npub-community-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "key.rotation",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-rider-A-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "previous_key": "npub-rider-A-000000",
+        "new_key": "npub-rider-A-new000",
+        "effective_at": 1783742500,
+        "recovery_attestation_refs": []
+      },
+      "proofs": [
+        {
+          "signer": "npub-rider-A-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "protocol": "pactride",
+      "version": "0.1",
+      "type": "moderation.warning",
+      "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actor": "npub-community-000000",
+      "created_at": 1783742400,
+      "previous": [],
+      "payload": {
+        "subject": "npub-driver-B-000000",
+        "category": "policy",
+        "issued_at": 1783742500,
+        "evidence_refs": [],
+        "confidence": "reported"
+      },
+      "proofs": [
+        {
+          "signer": "npub-community-000000",
+          "algorithm": "schnorr-secp256k1",
+          "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    }
+  ],
+  "invalid": [
+    {
+      "id": "event-missing-required-ride-id",
+      "event": {
+        "protocol": "pactride",
+        "version": "0.1",
+        "type": "ride.offer",
+        "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "actor": "npub-driver-B-000000",
+        "created_at": 1783742400,
+        "previous": [],
+        "payload": {
+          "offer_id": "01JOFFEREXAMPLE1",
+          "pickup_eta_seconds": 420,
+          "terms": {
+            "amount": "28.00",
+            "currency": "USD",
+            "settlement_methods": [
+              "cash"
+            ]
+          },
+          "vehicle_summary": {
+            "category": "compact-suv",
+            "seats_available": 3
+          },
+          "evidence_refs": []
+        },
+        "proofs": [
+          {
+            "signer": "npub-driver-B-000000",
+            "algorithm": "schnorr-secp256k1",
+            "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "reason": "ride.offer is ride-scoped"
+    },
+    {
+      "id": "event-undeclared-payload-field",
+      "event": {
+        "protocol": "pactride",
+        "version": "0.1",
+        "type": "ride.offer",
+        "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "actor": "npub-driver-B-000000",
+        "created_at": 1783742400,
+        "previous": [],
+        "payload": {
+          "offer_id": "01JOFFEREXAMPLE1",
+          "pickup_eta_seconds": 420,
+          "terms": {
+            "amount": "28.00",
+            "currency": "USD",
+            "settlement_methods": [
+              "cash"
+            ]
+          },
+          "vehicle_summary": {
+            "category": "compact-suv",
+            "seats_available": 3
+          },
+          "evidence_refs": [],
+          "secret_dispatch_score": 99
+        },
+        "proofs": [
+          {
+            "signer": "npub-driver-B-000000",
+            "algorithm": "schnorr-secp256k1",
+            "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ],
+        "ride_id": "01JPACTRIDEEXAMPLE"
+      },
+      "reason": "payload schemas are strict"
+    },
+    {
+      "id": "event-duplicate-bilateral-signer",
+      "event": {
+        "protocol": "pactride",
+        "version": "0.1",
+        "type": "pickup.proof",
+        "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "actor": "npub-rider-A-000000",
+        "created_at": 1783742400,
+        "previous": [],
+        "payload": {
+          "challenge_hash": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+          "rider": "npub-rider-A-000000",
+          "driver": "npub-driver-B-000000",
+          "verified_at": 1783743300,
+          "methods": [
+            "qr"
+          ]
+        },
+        "proofs": [
+          {
+            "signer": "npub-rider-A-000000",
+            "algorithm": "schnorr-secp256k1",
+            "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "signer": "npub-rider-A-000000",
+            "algorithm": "schnorr-secp256k1",
+            "signature": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
+          }
+        ],
+        "ride_id": "01JPACTRIDEEXAMPLE"
+      },
+      "reason": "bilateral signer set must contain two distinct accepted participants",
+      "semantic": true
+    },
+    {
+      "id": "event-unilateral-completion-receipt",
+      "event": {
+        "protocol": "pactride",
+        "version": "0.1",
+        "type": "ride.completed.receipt",
+        "event_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "actor": "npub-driver-B-000000",
+        "created_at": 1783742400,
+        "previous": [],
+        "payload": {
+          "rider": "npub-rider-A-000000",
+          "driver": "npub-driver-B-000000",
+          "accepted_terms_hash": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+          "pickup_proof_hash": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+          "started_at": 1783743300,
+          "completed_at": 1783745100,
+          "completion_zone": "dr5ru",
+          "settlement": {
+            "status": "declared-complete",
+            "method": "cash",
+            "amount": "28.00",
+            "currency": "USD"
+          }
+        },
+        "proofs": [
+          {
+            "signer": "npub-driver-B-000000",
+            "algorithm": "schnorr-secp256k1",
+            "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ],
+        "ride_id": "01JPACTRIDEEXAMPLE"
+      },
+      "reason": "a bilateral receipt requires two proofs"
+    }
+  ]
+}

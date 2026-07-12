@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wpgglabs.github.io/PactRide/sitemap.xml

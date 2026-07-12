@@ -1,0 +1,1369 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/wpggLabs/PactRide/main/schemas/protocol-event-types.schema.json",
+  "title": "PactRide v0.1 Event Families",
+  "description": "Strict payload coverage for every event family named by PactRide v0.1. Semantic state and signer checks remain in SEMANTIC_VALIDATION.md and the executable validator.",
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/wpggLabs/PactRide/main/schemas/event-envelope.schema.json"
+    },
+    {
+      "oneOf": [
+        {
+          "$ref": "https://raw.githubusercontent.com/wpggLabs/PactRide/main/schemas/public-ride-request-event.schema.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "driver.availability"
+            },
+            "payload": {
+              "$ref": "#/$defs/driver.availability"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ride.withdraw"
+            },
+            "payload": {
+              "$ref": "#/$defs/ride.withdraw"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ride.offer"
+            },
+            "payload": {
+              "$ref": "#/$defs/ride.offer"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ride.counter"
+            },
+            "payload": {
+              "$ref": "#/$defs/ride.counter"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "identity.binding"
+            },
+            "payload": {
+              "$ref": "#/$defs/identity.binding"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ride.accept"
+            },
+            "payload": {
+              "$ref": "#/$defs/ride.accept"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ride.decline"
+            },
+            "payload": {
+              "$ref": "#/$defs/ride.decline"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ride.cancel"
+            },
+            "payload": {
+              "$ref": "#/$defs/ride.cancel"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "driver.departing"
+            },
+            "payload": {
+              "$ref": "#/$defs/driver.departing"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "driver.arrived"
+            },
+            "payload": {
+              "$ref": "#/$defs/driver.arrived"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "pickup.challenge"
+            },
+            "payload": {
+              "$ref": "#/$defs/pickup.challenge"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "pickup.proof"
+            },
+            "payload": {
+              "$ref": "#/$defs/pickup.proof"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ride.started"
+            },
+            "payload": {
+              "$ref": "#/$defs/ride.started"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ride.progress"
+            },
+            "payload": {
+              "$ref": "#/$defs/ride.progress"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ride.abort"
+            },
+            "payload": {
+              "$ref": "#/$defs/ride.abort"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ride.completed.claim"
+            },
+            "payload": {
+              "$ref": "#/$defs/ride.completed.claim"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ride.completed.receipt"
+            },
+            "payload": {
+              "$ref": "#/$defs/ride.completed.receipt"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ride.disputed"
+            },
+            "payload": {
+              "$ref": "#/$defs/ride.disputed"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ride.rating"
+            },
+            "payload": {
+              "$ref": "#/$defs/ride.rating"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "identity.attestation"
+            },
+            "payload": {
+              "$ref": "#/$defs/identity.attestation"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "vehicle.attestation"
+            },
+            "payload": {
+              "$ref": "#/$defs/vehicle.attestation"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "credential.revocation"
+            },
+            "payload": {
+              "$ref": "#/$defs/credential.revocation"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "key.rotation"
+            },
+            "payload": {
+              "$ref": "#/$defs/key.rotation"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "moderation.warning"
+            },
+            "payload": {
+              "$ref": "#/$defs/moderation.warning"
+            }
+          },
+          "required": [
+            "type",
+            "payload"
+          ]
+        }
+      ]
+    }
+  ],
+  "$defs": {
+    "driver.availability": {
+      "type": "object",
+      "required": [
+        "availability_id",
+        "service_cells",
+        "window",
+        "vehicle_summary"
+      ],
+      "properties": {
+        "availability_id": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "service_cells": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[0123456789bcdefghjkmnpqrstuvwxyz]{3,8}$"
+          }
+        },
+        "window": {
+          "type": "object",
+          "required": [
+            "not_before",
+            "duration_seconds"
+          ],
+          "properties": {
+            "not_before": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "duration_seconds": {
+              "type": "integer",
+              "minimum": 60,
+              "maximum": 86400
+            }
+          },
+          "additionalProperties": false
+        },
+        "vehicle_summary": {
+          "type": "object",
+          "required": [
+            "category",
+            "seats_available"
+          ],
+          "properties": {
+            "category": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 64
+            },
+            "seats_available": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 32
+            },
+            "accessibility_features": {
+              "type": "array",
+              "maxItems": 16,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 64
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "ride.withdraw": {
+      "type": "object",
+      "required": [
+        "request_event_id",
+        "reason"
+      ],
+      "properties": {
+        "request_event_id": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "reason": {
+          "type": "string",
+          "enum": [
+            "matched",
+            "changed-plans",
+            "expired-locally",
+            "duplicate",
+            "other"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "ride.offer": {
+      "type": "object",
+      "required": [
+        "offer_id",
+        "pickup_eta_seconds",
+        "terms",
+        "vehicle_summary",
+        "evidence_refs"
+      ],
+      "properties": {
+        "offer_id": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "pickup_eta_seconds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 86400
+        },
+        "terms": {
+          "type": "object",
+          "required": [
+            "amount",
+            "currency",
+            "settlement_methods"
+          ],
+          "properties": {
+            "amount": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]{1,2})?$"
+            },
+            "currency": {
+              "type": "string",
+              "pattern": "^[A-Z]{3}$"
+            },
+            "settlement_methods": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 8,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "vehicle_summary": {
+          "type": "object",
+          "required": [
+            "category",
+            "seats_available"
+          ],
+          "properties": {
+            "category": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 64
+            },
+            "seats_available": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 32
+            }
+          },
+          "additionalProperties": false
+        },
+        "evidence_refs": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 256
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ride.counter": {
+      "type": "object",
+      "required": [
+        "terms",
+        "terms_hash"
+      ],
+      "properties": {
+        "terms": {
+          "type": "object",
+          "required": [
+            "amount",
+            "currency",
+            "settlement_methods"
+          ],
+          "properties": {
+            "amount": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]{1,2})?$"
+            },
+            "currency": {
+              "type": "string",
+              "pattern": "^[A-Z]{3}$"
+            },
+            "settlement_methods": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 8,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "terms_hash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "identity.binding": {
+      "type": "object",
+      "required": [
+        "request_event_id",
+        "discovery_key",
+        "identity_key",
+        "scope",
+        "valid_for_seconds"
+      ],
+      "properties": {
+        "request_event_id": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "discovery_key": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "identity_key": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "scope": {
+          "const": "single-ride"
+        },
+        "valid_for_seconds": {
+          "type": "integer",
+          "minimum": 60,
+          "maximum": 86400
+        }
+      },
+      "additionalProperties": false
+    },
+    "ride.accept": {
+      "type": "object",
+      "required": [
+        "terms_hash",
+        "rider",
+        "driver"
+      ],
+      "properties": {
+        "terms_hash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "rider": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "driver": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "exact_pickup": {
+          "type": "object",
+          "required": [
+            "latitude",
+            "longitude"
+          ],
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            },
+            "longitude": {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            },
+            "instructions": {
+              "type": "string",
+              "maxLength": 500
+            }
+          },
+          "additionalProperties": false
+        },
+        "exact_destination": {
+          "type": "object",
+          "required": [
+            "latitude",
+            "longitude"
+          ],
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            },
+            "longitude": {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            },
+            "instructions": {
+              "type": "string",
+              "maxLength": 500
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "ride.decline": {
+      "type": "object",
+      "required": [
+        "offer_id",
+        "reason"
+      ],
+      "properties": {
+        "offer_id": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "reason": {
+          "type": "string",
+          "enum": [
+            "terms",
+            "timing",
+            "vehicle",
+            "trust-policy",
+            "accessibility",
+            "other"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "ride.cancel": {
+      "type": "object",
+      "required": [
+        "last_recognized_state",
+        "reason"
+      ],
+      "properties": {
+        "last_recognized_state": {
+          "type": "string",
+          "enum": [
+            "Requested",
+            "Matching",
+            "Accepted",
+            "DriverDeparting",
+            "DriverArrived"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64
+        },
+        "external_help_requested": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "driver.departing": {
+      "type": "object",
+      "required": [
+        "departed_at",
+        "eta_seconds"
+      ],
+      "properties": {
+        "departed_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "eta_seconds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 86400
+        }
+      },
+      "additionalProperties": false
+    },
+    "driver.arrived": {
+      "type": "object",
+      "required": [
+        "arrived_at",
+        "arrival_zone"
+      ],
+      "properties": {
+        "arrived_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "arrival_zone": {
+          "type": "string",
+          "pattern": "^[0123456789bcdefghjkmnpqrstuvwxyz]{3,8}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "pickup.challenge": {
+      "type": "object",
+      "required": [
+        "challenge_hash",
+        "methods",
+        "expires_at"
+      ],
+      "properties": {
+        "challenge_hash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "methods": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "qr",
+              "short-phrase",
+              "manual-code",
+              "ble-proximity"
+            ]
+          }
+        },
+        "expires_at": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "pickup.proof": {
+      "type": "object",
+      "required": [
+        "challenge_hash",
+        "rider",
+        "driver",
+        "verified_at",
+        "methods"
+      ],
+      "properties": {
+        "challenge_hash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "rider": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "driver": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "verified_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "methods": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "qr",
+              "short-phrase",
+              "manual-code",
+              "ble-proximity"
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ride.started": {
+      "type": "object",
+      "required": [
+        "pickup_proof_hash",
+        "started_at"
+      ],
+      "properties": {
+        "pickup_proof_hash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "started_at": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "ride.progress": {
+      "type": "object",
+      "required": [
+        "observed_at",
+        "status"
+      ],
+      "properties": {
+        "observed_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "in-progress",
+            "paused",
+            "route-changed",
+            "assistance-requested"
+          ]
+        },
+        "coarse_zone": {
+          "type": "string",
+          "pattern": "^[0123456789bcdefghjkmnpqrstuvwxyz]{3,8}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ride.abort": {
+      "type": "object",
+      "required": [
+        "last_recognized_state",
+        "reason",
+        "external_help_requested"
+      ],
+      "properties": {
+        "last_recognized_state": {
+          "type": "string",
+          "enum": [
+            "PickupVerified",
+            "InProgress",
+            "CompletionClaimed"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64
+        },
+        "external_help_requested": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ride.completed.claim": {
+      "type": "object",
+      "required": [
+        "rider",
+        "driver",
+        "accepted_terms_hash",
+        "pickup_proof_hash",
+        "started_at",
+        "completed_at",
+        "settlement"
+      ],
+      "properties": {
+        "rider": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "driver": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "accepted_terms_hash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "pickup_proof_hash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "started_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "completed_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "completion_zone": {
+          "type": "string",
+          "pattern": "^[0123456789bcdefghjkmnpqrstuvwxyz]{3,8}$"
+        },
+        "settlement": {
+          "type": "object",
+          "required": [
+            "status",
+            "method",
+            "amount",
+            "currency"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "not-declared",
+                "declared-pending",
+                "declared-complete",
+                "declared-disputed"
+              ]
+            },
+            "method": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "amount": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]{1,2})?$"
+            },
+            "currency": {
+              "type": "string",
+              "pattern": "^[A-Z]{3}$"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "ride.completed.receipt": {
+      "$ref": "#/$defs/ride.completed.claim"
+    },
+    "ride.disputed": {
+      "type": "object",
+      "required": [
+        "disputed_event_ids",
+        "reason"
+      ],
+      "properties": {
+        "disputed_event_ids": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 16,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 128
+        }
+      },
+      "additionalProperties": false
+    },
+    "ride.rating": {
+      "type": "object",
+      "required": [
+        "receipt_event_id",
+        "subject",
+        "dimensions"
+      ],
+      "properties": {
+        "receipt_event_id": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "dimensions": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 8,
+          "propertyNames": {
+            "pattern": "^[a-z][a-z0-9-]{1,31}$"
+          },
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          }
+        },
+        "comment": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      },
+      "additionalProperties": false
+    },
+    "identity.attestation": {
+      "type": "object",
+      "required": [
+        "issuer",
+        "subject",
+        "issued_at",
+        "expires_at",
+        "claims",
+        "revocation_ref"
+      ],
+      "properties": {
+        "issuer": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "issued_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "expires_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "claims": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 32,
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "value",
+              "method"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9.-]{1,63}$"
+              },
+              "value": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean"
+                ]
+              },
+              "method": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 128
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "revocation_ref": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 256
+        },
+        "evidence_uri": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 512
+        }
+      },
+      "additionalProperties": false
+    },
+    "vehicle.attestation": {
+      "type": "object",
+      "required": [
+        "issuer",
+        "subject",
+        "vehicle_ref",
+        "issued_at",
+        "expires_at",
+        "claims",
+        "revocation_ref"
+      ],
+      "properties": {
+        "issuer": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "vehicle_ref": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 256
+        },
+        "issued_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "expires_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "claims": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 32,
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "value",
+              "method"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9.-]{1,63}$"
+              },
+              "value": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean"
+                ]
+              },
+              "method": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 128
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "revocation_ref": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 256
+        }
+      },
+      "additionalProperties": false
+    },
+    "credential.revocation": {
+      "type": "object",
+      "required": [
+        "credential_event_id",
+        "revoked_at",
+        "reason"
+      ],
+      "properties": {
+        "credential_event_id": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "revoked_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 128
+        }
+      },
+      "additionalProperties": false
+    },
+    "key.rotation": {
+      "type": "object",
+      "required": [
+        "previous_key",
+        "new_key",
+        "effective_at"
+      ],
+      "properties": {
+        "previous_key": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "new_key": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "effective_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "recovery_attestation_refs": {
+          "type": "array",
+          "maxItems": 16,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 256
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "moderation.warning": {
+      "type": "object",
+      "required": [
+        "subject",
+        "category",
+        "issued_at",
+        "evidence_refs"
+      ],
+      "properties": {
+        "subject": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "spam",
+            "harassment",
+            "fraud",
+            "safety",
+            "policy",
+            "other"
+          ]
+        },
+        "issued_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "expires_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "evidence_refs": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 256
+          }
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "unreviewed",
+            "reported",
+            "reviewed",
+            "adjudicated"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,47 @@
+name: Licensing or governance review
+description: Review commercial licensing, contributor rights, trademarks, funding, or project stewardship
+title: "[Legal/Governance]: "
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not post confidential legal advice, signed agreements, personal addresses, or private business terms. This template is for public project-policy discussion.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or decision
+      description: State the exact licensing, trademark, contribution, funding, or governance question.
+    validations:
+      required: true
+  - type: textarea
+    id: affected
+    attributes:
+      label: Material affected
+      description: Identify the files, code, specification text, marks, or contribution types involved.
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Options and tradeoffs
+      description: Compare open-source, commercial, contributor, community, and operational effects.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Primary sources or professional review
+      description: Link official license text, recognized guidance, or note that qualified legal review is needed.
+    validations:
+      required: true
+  - type: checkboxes
+    id: declarations
+    attributes:
+      label: Declarations
+      options:
+        - label: I am not posting confidential legal or personal information.
+          required: true
+        - label: I disclosed relevant financial or organizational interests.
+          required: true

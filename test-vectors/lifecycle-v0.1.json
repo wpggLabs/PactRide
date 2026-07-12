@@ -1,0 +1,299 @@
+{
+  "profile": "pactride-lifecycle-v0.1",
+  "description": "Executable aggregate-state scenarios. clock.expire is a harness action, not a wire event.",
+  "scenarios": [
+    {
+      "id": "normal-completion",
+      "expected_state": "Completed",
+      "events": [
+        {
+          "id": "e1",
+          "type": "ride.request"
+        },
+        {
+          "id": "e2",
+          "type": "ride.offer",
+          "terms_hash": "H1"
+        },
+        {
+          "id": "e3",
+          "type": "ride.counter",
+          "terms_hash": "H2"
+        },
+        {
+          "id": "e4",
+          "type": "ride.accept",
+          "terms_hash": "H2",
+          "actor": "npub-driver-B-000000"
+        },
+        {
+          "id": "e5",
+          "type": "ride.accept",
+          "terms_hash": "H2",
+          "actor": "npub-rider-A-000000"
+        },
+        {
+          "id": "e6",
+          "type": "driver.departing"
+        },
+        {
+          "id": "e7",
+          "type": "driver.arrived"
+        },
+        {
+          "id": "e8",
+          "type": "pickup.proof"
+        },
+        {
+          "id": "e9",
+          "type": "ride.started"
+        },
+        {
+          "id": "e10",
+          "type": "ride.completed.claim"
+        },
+        {
+          "id": "e11",
+          "type": "ride.completed.receipt"
+        }
+      ]
+    },
+    {
+      "id": "duplicate-delivery-is-idempotent",
+      "expected_state": "Matching",
+      "events": [
+        {
+          "id": "d1",
+          "type": "ride.request"
+        },
+        {
+          "id": "d2",
+          "type": "ride.offer",
+          "terms_hash": "H1"
+        },
+        {
+          "id": "d2",
+          "type": "ride.offer",
+          "terms_hash": "H1"
+        }
+      ]
+    },
+    {
+      "id": "stale-accept-rejected",
+      "expected_error": "stale terms acceptance",
+      "events": [
+        {
+          "id": "s1",
+          "type": "ride.request"
+        },
+        {
+          "id": "s2",
+          "type": "ride.offer",
+          "terms_hash": "H1"
+        },
+        {
+          "id": "s3",
+          "type": "ride.counter",
+          "terms_hash": "H2"
+        },
+        {
+          "id": "s4",
+          "type": "ride.accept",
+          "terms_hash": "H1",
+          "actor": "npub-driver-B-000000"
+        }
+      ]
+    },
+    {
+      "id": "reordered-arrival-rejected",
+      "expected_error": "driver.arrived invalid from Accepted",
+      "events": [
+        {
+          "id": "r1",
+          "type": "ride.request"
+        },
+        {
+          "id": "r2",
+          "type": "ride.offer",
+          "terms_hash": "H1"
+        },
+        {
+          "id": "r3",
+          "type": "ride.accept",
+          "terms_hash": "H1",
+          "actor": "npub-driver-B-000000"
+        },
+        {
+          "id": "r4",
+          "type": "ride.accept",
+          "terms_hash": "H1",
+          "actor": "npub-rider-A-000000"
+        },
+        {
+          "id": "r5",
+          "type": "driver.arrived"
+        }
+      ]
+    },
+    {
+      "id": "post-pickup-cancel-rejected",
+      "expected_error": "ride.cancel invalid from PickupVerified",
+      "events": [
+        {
+          "id": "c1",
+          "type": "ride.request"
+        },
+        {
+          "id": "c2",
+          "type": "ride.offer",
+          "terms_hash": "H1"
+        },
+        {
+          "id": "c3",
+          "type": "ride.accept",
+          "terms_hash": "H1",
+          "actor": "npub-driver-B-000000"
+        },
+        {
+          "id": "c4",
+          "type": "ride.accept",
+          "terms_hash": "H1",
+          "actor": "npub-rider-A-000000"
+        },
+        {
+          "id": "c5",
+          "type": "driver.departing"
+        },
+        {
+          "id": "c6",
+          "type": "driver.arrived"
+        },
+        {
+          "id": "c7",
+          "type": "pickup.proof"
+        },
+        {
+          "id": "c8",
+          "type": "ride.cancel"
+        }
+      ]
+    },
+    {
+      "id": "post-pickup-abort-valid",
+      "expected_state": "Aborted",
+      "events": [
+        {
+          "id": "a1",
+          "type": "ride.request"
+        },
+        {
+          "id": "a2",
+          "type": "ride.offer",
+          "terms_hash": "H1"
+        },
+        {
+          "id": "a3",
+          "type": "ride.accept",
+          "terms_hash": "H1",
+          "actor": "npub-driver-B-000000"
+        },
+        {
+          "id": "a4",
+          "type": "ride.accept",
+          "terms_hash": "H1",
+          "actor": "npub-rider-A-000000"
+        },
+        {
+          "id": "a5",
+          "type": "driver.departing"
+        },
+        {
+          "id": "a6",
+          "type": "driver.arrived"
+        },
+        {
+          "id": "a7",
+          "type": "pickup.proof"
+        },
+        {
+          "id": "a8",
+          "type": "ride.started"
+        },
+        {
+          "id": "a9",
+          "type": "ride.abort"
+        }
+      ]
+    },
+    {
+      "id": "request-expiry",
+      "expected_state": "Expired",
+      "events": [
+        {
+          "id": "x1",
+          "type": "ride.request"
+        },
+        {
+          "id": "x2",
+          "type": "ride.offer",
+          "terms_hash": "H1"
+        },
+        {
+          "id": "x3",
+          "type": "clock.expire"
+        }
+      ]
+    },
+    {
+      "id": "conflicting-claim-to-dispute",
+      "expected_state": "Disputed",
+      "events": [
+        {
+          "id": "q1",
+          "type": "ride.request"
+        },
+        {
+          "id": "q2",
+          "type": "ride.offer",
+          "terms_hash": "H1"
+        },
+        {
+          "id": "q3",
+          "type": "ride.accept",
+          "terms_hash": "H1",
+          "actor": "npub-driver-B-000000"
+        },
+        {
+          "id": "q4",
+          "type": "ride.accept",
+          "terms_hash": "H1",
+          "actor": "npub-rider-A-000000"
+        },
+        {
+          "id": "q5",
+          "type": "driver.departing"
+        },
+        {
+          "id": "q6",
+          "type": "driver.arrived"
+        },
+        {
+          "id": "q7",
+          "type": "pickup.proof"
+        },
+        {
+          "id": "q8",
+          "type": "ride.started"
+        },
+        {
+          "id": "q9",
+          "type": "ride.completed.claim"
+        },
+        {
+          "id": "q10",
+          "type": "ride.disputed"
+        }
+      ]
+    }
+  ]
+}

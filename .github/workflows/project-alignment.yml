@@ -1,0 +1,75 @@
+name: Validate project alignment
+
+on:
+  pull_request:
+    paths:
+      - "README.md"
+      - "STATUS.md"
+      - "FOUNDER_VISION.md"
+      - "COMMONPACT_RELATIONSHIP.md"
+      - "VISION.md"
+      - "ROADMAP.md"
+      - "ARCHITECTURE.md"
+      - "PRIVACY.md"
+      - "GOVERNANCE.md"
+      - "MAINTAINERS.md"
+      - "MAINTENANCE.md"
+      - "CITATION.cff"
+      - "LICENSE"
+      - "LICENSING.md"
+      - "MONETIZATION.md"
+      - "CONTRIBUTOR_POLICY.md"
+      - "CONTRIBUTING.md"
+      - "FAQ.md"
+      - "LEGAL_REVIEW_CHECKLIST.md"
+      - ".github/PULL_REQUEST_TEMPLATE.md"
+      - "docs/**"
+      - "scripts/validate_project_alignment.py"
+      - ".github/workflows/project-alignment.yml"
+  push:
+    branches: [main]
+    paths:
+      - "README.md"
+      - "STATUS.md"
+      - "FOUNDER_VISION.md"
+      - "COMMONPACT_RELATIONSHIP.md"
+      - "VISION.md"
+      - "ROADMAP.md"
+      - "ARCHITECTURE.md"
+      - "PRIVACY.md"
+      - "GOVERNANCE.md"
+      - "MAINTAINERS.md"
+      - "MAINTENANCE.md"
+      - "CITATION.cff"
+      - "LICENSE"
+      - "LICENSING.md"
+      - "MONETIZATION.md"
+      - "CONTRIBUTOR_POLICY.md"
+      - "CONTRIBUTING.md"
+      - "FAQ.md"
+      - "LEGAL_REVIEW_CHECKLIST.md"
+      - ".github/PULL_REQUEST_TEMPLATE.md"
+      - "docs/**"
+      - "scripts/validate_project_alignment.py"
+      - ".github/workflows/project-alignment.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-alignment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Quietly check out tested commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git init -q
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git fetch -q --depth=1 origin "${GITHUB_SHA}"
+          git checkout -q FETCH_HEAD
+
+      - name: Validate website and repository alignment
+        run: python3 scripts/validate_project_alignment.py

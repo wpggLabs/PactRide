@@ -1,0 +1,136 @@
+{
+  "description": "Conformance cases retained from the initial public protocol review and maintained as current regression requirements.",
+  "cases": [
+    {
+      "id": "P1-event-id-self-reference",
+      "stage": "event-id",
+      "operation": "Compute the hash while retaining event_id in the signing object.",
+      "expected": "reject",
+      "reason": "event_id and proofs must be omitted before JCS canonicalization."
+    },
+    {
+      "id": "P1-bilateral-single-signature",
+      "stage": "schema-and-proofs",
+      "event_type": "ride.completed.receipt",
+      "mutation": {
+        "remove": ["/proofs"],
+        "add": {"/signature": "legacy-single-signature"}
+      },
+      "expected": "reject",
+      "reason": "Bilateral events use proofs[] and require the exact accepted rider and driver signer set."
+    },
+    {
+      "id": "P1-public-sensitive-top-level-field",
+      "stage": "public-envelope-schema",
+      "event_type": "ride.request",
+      "mutation": {
+        "add": {"/phone": "+1-555-0100"}
+      },
+      "expected": "reject",
+      "reason": "Undeclared top-level fields are forbidden."
+    },
+    {
+      "id": "P1-public-extension-object",
+      "stage": "public-envelope-schema",
+      "event_type": "ride.request",
+      "mutation": {
+        "add": {"/extensions": {"example.com/contact": {"phone": "+1-555-0100"}}}
+      },
+      "expected": "reject",
+      "reason": "Public discovery extensions are forbidden in v0.1."
+    },
+    {
+      "id": "P1-non-ride-attestation-without-ride-id",
+      "stage": "envelope-schema",
+      "event": {
+        "protocol": "pactride",
+        "version": "0.1",
+        "type": "identity.attestation",
+        "event_id": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "actor": "npub1attestor000000000",
+        "created_at": 1783742400,
+        "payload": {"subject": "npub1subject000000000", "claim": "community-member"},
+        "proofs": [
+          {
+            "signer": "npub1attestor000000000",
+            "algorithm": "schnorr-secp256k1",
+            "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "expected_schema_valid": true,
+      "note": "The placeholder event ID and proof are not cryptographic validation vectors."
+    },
+    {
+      "id": "P2-contradictory-geohash-precision",
+      "stage": "ride-request-schema",
+      "mutation": {
+        "add": {"/payload/pickup/precision": 3}
+      },
+      "expected": "reject",
+      "reason": "Precision is derived from geohash length; the separate field is undeclared."
+    },
+    {
+      "id": "P2-reversed-window-legacy-shape",
+      "stage": "ride-request-schema",
+      "mutation": {
+        "replace": {
+          "/payload/window": {"earliest": 1783743600, "latest": 1783742700}
+        }
+      },
+      "expected": "reject",
+      "reason": "v0.1 requires not_before plus a positive duration_seconds."
+    },
+    {
+      "id": "P2-nonpositive-expiry",
+      "stage": "envelope-schema",
+      "mutation": {
+        "replace": {"/ttl_seconds": 0}
+      },
+      "expected": "reject",
+      "reason": "A positive TTL makes expiry after creation by construction."
+    },
+    {
+      "id": "P2-post-pickup-cancel",
+      "stage": "state-machine",
+      "current_state": "InProgress",
+      "event_type": "ride.cancel",
+      "expected": "reject-transition",
+      "required_event_type": "ride.abort"
+    },
+    {
+      "id": "P2-decline-after-acceptance",
+      "stage": "offer-thread-state-machine",
+      "current_state": "Accepted",
+      "event_type": "ride.decline",
+      "expected": "reject-transition",
+      "reason": "Declined is terminal only for unaccepted offer threads."
+    },
+    {
+      "id": "P2-request-expiry",
+      "stage": "state-machine",
+      "current_state": "Matching",
+      "condition": "current_time > created_at + ttl_seconds and no bilateral acceptance exists",
+      "expected_ride_state": "Expired",
+      "expected_offer_thread_state": "Expired"
+    },
+    {
+      "id": "P2-unbound-identity-switch",
+      "stage": "identity-binding",
+      "request_actor": "npub-discovery-7",
+      "accept_actor": "npub-rider-A",
+      "identity_binding_present": false,
+      "expected": "reject",
+      "reason": "The long-term key must be bound by one encrypted event proven by both keys."
+    },
+    {
+      "id": "valid-bilateral-pickup-proof",
+      "stage": "proofs",
+      "event_type": "pickup.proof",
+      "accepted_participants": ["npub-rider-A", "npub-driver-B"],
+      "proof_signers": ["npub-rider-A", "npub-driver-B"],
+      "same_event_id": true,
+      "expected": "accept-after-cryptographic-verification"
+    }
+  ]
+}

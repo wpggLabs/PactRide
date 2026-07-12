@@ -1,0 +1,53 @@
+name: Validate protocol artifacts
+
+on:
+  pull_request:
+    paths:
+      - "PROTOCOL.md"
+      - "RIDE_LIFECYCLE.md"
+      - "DISCOVERY_AND_MATCHING.md"
+      - "IDENTITY.md"
+      - "INTEROPERABILITY.md"
+      - "schemas/**"
+      - "test-vectors/**"
+      - "examples/**"
+      - "requirements-dev.txt"
+      - "scripts/validate_protocol_artifacts.py"
+      - ".github/workflows/protocol-artifacts.yml"
+  push:
+    branches: [main]
+    paths:
+      - "PROTOCOL.md"
+      - "RIDE_LIFECYCLE.md"
+      - "DISCOVERY_AND_MATCHING.md"
+      - "IDENTITY.md"
+      - "INTEROPERABILITY.md"
+      - "schemas/**"
+      - "test-vectors/**"
+      - "examples/**"
+      - "requirements-dev.txt"
+      - "scripts/validate_protocol_artifacts.py"
+      - ".github/workflows/protocol-artifacts.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-protocol-artifacts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install validator dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements-dev.txt
+
+      - name: Validate schemas and review vectors
+        run: python scripts/validate_protocol_artifacts.py

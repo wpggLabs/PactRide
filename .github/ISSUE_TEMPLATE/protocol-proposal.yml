@@ -1,0 +1,63 @@
+name: Protocol proposal
+description: Propose a change to PactRide protocol behavior
+title: "[Protocol]: "
+labels:
+  - protocol
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Start with the problem. Do not assume a blockchain, token, central service, or particular implementation.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Who is affected and what currently fails?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe events, validation, state, and errors.
+    validations:
+      required: true
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Privacy impact
+      description: What becomes public, encrypted, local, or linkable?
+    validations:
+      required: true
+  - type: textarea
+    id: threats
+    attributes:
+      label: Security and abuse impact
+      description: New attacks, mitigations, and residual risk.
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility and migration
+      description: How do existing clients handle this change?
+    validations:
+      required: true
+  - type: textarea
+    id: tests
+    attributes:
+      label: Test plan
+      description: Valid, invalid, cross-client, and failure cases.
+    validations:
+      required: true
+  - type: checkboxes
+    id: declarations
+    attributes:
+      label: Declarations
+      options:
+        - label: I searched existing issues and prior art.
+          required: true
+        - label: I have not included real personal or trip data.
+          required: true
+        - label: I disclosed relevant commercial interests.
+          required: true

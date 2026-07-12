@@ -1,0 +1,14 @@
+# Initial stewardship defaults. Expand to multiple maintainers as the project grows.
+* @wpggLabs
+
+# Safety, licensing, governance, and protocol changes require explicit maintainer review.
+/SECURITY.md @wpggLabs
+/THREAT_MODEL.md @wpggLabs
+/GOVERNANCE.md @wpggLabs
+/LICENSING.md @wpggLabs
+/TRADEMARK.md @wpggLabs
+/CONTRIBUTOR_POLICY.md @wpggLabs
+/LICENSE-* @wpggLabs
+/PROTOCOL.md @wpggLabs
+/rfcs/ @wpggLabs
+/schemas/ @wpggLabs

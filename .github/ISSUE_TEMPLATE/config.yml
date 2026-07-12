@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: PactRide Discussions
+    url: https://github.com/wpggLabs/PactRide/discussions
+    about: Use Discussions for broad ideas, introductions, and community questions.
+  - name: Security policy
+    url: https://github.com/wpggLabs/PactRide/blob/main/SECURITY.md
+    about: Do not disclose exploitable security, stalking, or privacy details in a public issue.
+  - name: Licensing model
+    url: https://github.com/wpggLabs/PactRide/blob/main/LICENSING.md
+    about: Read the licensing, trademark, contributor, and sustainability boundaries before proposing commercial use.

@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use or discuss PactRide in research, standards work, or an implementation, please cite this repository."
+title: "PactRide: An open protocol research project for interoperable ride coordination"
+type: software
+authors:
+  - name: "wpggLabs"
+version: "0.1.0-rfc"
+date-released: 2026-07-11
+license: Apache-2.0
+repository-code: "https://github.com/wpggLabs/PactRide"
+url: "https://wpgglabs.github.io/PactRide/"
+abstract: >-
+  PactRide is a pre-implementation research RFC and the first CommonPact source
+  profile for interoperable ride coordination using user-held cryptographic
+  identity, coarse public discovery, encrypted negotiation, bilateral proofs,
+  portable evidence, and replaceable infrastructure without a mandatory
+  platform operator or protocol-level commission. PactRide remains self-contained
+  and does not currently depend on the CommonPact wire format or runtime.
+keywords:
+  - PactRide
+  - CommonPact
+  - open mobility
+  - ride coordination
+  - interoperability
+  - privacy
+  - cryptographic identity
+  - Nostr
+  - driver cooperative
+  - transportation protocol

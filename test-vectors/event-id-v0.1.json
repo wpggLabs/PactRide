@@ -1,0 +1,64 @@
+{
+  "description": "Normative PactRide v0.1 event-ID vector. The signature bytes are placeholders and are not a signature-validation vector.",
+  "signing_object": {
+    "protocol": "pactride",
+    "version": "0.1",
+    "type": "ride.request",
+    "actor": "npub1exampleauthor000000",
+    "created_at": 1783742400,
+    "ttl_seconds": 600,
+    "ride_id": "01JPACTRIDEEXAMPLE",
+    "previous": [],
+    "payload": {
+      "pickup": {
+        "geohash": "dr5x1"
+      },
+      "destination": {
+        "geohash": "dr5ru"
+      },
+      "window": {
+        "not_before": 1783742700,
+        "duration_seconds": 900
+      },
+      "party": {
+        "seats": 1
+      }
+    }
+  },
+  "canonical_json": "{\"actor\":\"npub1exampleauthor000000\",\"created_at\":1783742400,\"payload\":{\"destination\":{\"geohash\":\"dr5ru\"},\"party\":{\"seats\":1},\"pickup\":{\"geohash\":\"dr5x1\"},\"window\":{\"duration_seconds\":900,\"not_before\":1783742700}},\"previous\":[],\"protocol\":\"pactride\",\"ride_id\":\"01JPACTRIDEEXAMPLE\",\"ttl_seconds\":600,\"type\":\"ride.request\",\"version\":\"0.1\"}",
+  "expected_digest_hex": "c1f48fc97d9dadf2c7050325e2c5dd52c9d93d022639e71a390bad7741ea0bd3",
+  "expected_event_id": "sha256:c1f48fc97d9dadf2c7050325e2c5dd52c9d93d022639e71a390bad7741ea0bd3",
+  "complete_event": {
+    "protocol": "pactride",
+    "version": "0.1",
+    "type": "ride.request",
+    "event_id": "sha256:c1f48fc97d9dadf2c7050325e2c5dd52c9d93d022639e71a390bad7741ea0bd3",
+    "actor": "npub1exampleauthor000000",
+    "created_at": 1783742400,
+    "ttl_seconds": 600,
+    "ride_id": "01JPACTRIDEEXAMPLE",
+    "previous": [],
+    "payload": {
+      "pickup": {
+        "geohash": "dr5x1"
+      },
+      "destination": {
+        "geohash": "dr5ru"
+      },
+      "window": {
+        "not_before": 1783742700,
+        "duration_seconds": 900
+      },
+      "party": {
+        "seats": 1
+      }
+    },
+    "proofs": [
+      {
+        "signer": "npub1exampleauthor000000",
+        "algorithm": "schnorr-secp256k1",
+        "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      }
+    ]
+  }
+}

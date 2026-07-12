@@ -1,0 +1,38 @@
+<svg xmlns="http&#58;//www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">PactRide social preview</title>
+  <desc id="desc">An open protocol for rides, showing rider, relay, private channel, and driver nodes.</desc>
+  <defs>
+    <pattern id="gridDark" width="64" height="64" patternUnits="userSpaceOnUse"><path d="M64 0H0V64" fill="none" stroke="#1b1b1b" stroke-width="1"/></pattern>
+    <pattern id="gridLight" width="64" height="64" patternUnits="userSpaceOnUse"><path d="M64 0H0V64" fill="none" stroke="#e7e3d9" stroke-width="1"/></pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M0 0L10 5L0 10Z" fill="#111111"/></marker>
+    <marker id="arrowMuted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M0 0L10 5L0 10Z" fill="#77736b"/></marker>
+  </defs>
+  <rect width="1280" height="640" fill="#f3f1ea"/><rect width="1280" height="640" fill="url(#gridLight)"/>
+  <rect width="790" height="640" fill="#101010"/><rect width="790" height="640" fill="url(#gridDark)"/>
+  <g fill="none" stroke="#f3f1ea" stroke-width="3"><rect x="72" y="64" width="34" height="34" rx="8"/><rect x="90" y="82" width="34" height="34" rx="8"/></g>
+  <text x="144" y="100" fill="#f3f1ea" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">PactRide</text>
+  <rect x="72" y="150" width="326" height="40" rx="20" fill="#1d1d1d" stroke="#3a3a3a"/><circle cx="93" cy="170" r="5" fill="#a8f07a"/>
+  <text x="110" y="176" fill="#dad7ce" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">PRE-IMPLEMENTATION RFC</text>
+  <text x="72" y="306" fill="#f7f5ef" font-family="Inter, Arial, sans-serif" font-size="80" font-weight="750">An open protocol</text>
+  <text x="72" y="397" fill="#f7f5ef" font-family="Inter, Arial, sans-serif" font-size="80" font-weight="750">for rides.</text>
+  <text x="76" y="460" fill="#c9c6bd" font-family="Inter, Arial, sans-serif" font-size="27"><tspan x="76" dy="0">Interoperable ride coordination with user-held identity,</tspan><tspan x="76" dy="38">private negotiation, portable evidence, and no protocol tax.</tspan></text>
+  <line x1="72" y1="570" x2="716" y2="570" stroke="#343434"/>
+  <text x="72" y="612" fill="#f3f1ea" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600">APACHE-2.0</text>
+  <text x="250" y="612" fill="#a8a59d" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600">OPEN INFRASTRUCTURE</text>
+  <text x="520" y="612" fill="#a8a59d" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">WPGGLABS / PACTRIDE</text>
+  <text x="830" y="86" fill="#33312e" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600">RIDER–DRIVER EXCHANGE</text>
+  <text x="830" y="123" fill="#111111" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600"><tspan x="830" dy="0">Public enough to discover.</tspan><tspan x="830" dy="31">Private enough to coordinate.</tspan></text>
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="850" y="220" width="190" height="82" rx="18" fill="#ffffff" stroke="#cfcac0" stroke-width="2"/><text x="868" y="262" fill="#111111" font-size="24" font-weight="600">Rider client</text><text x="868" y="287" fill="#65615b" font-size="17">user-held keys</text>
+    <rect x="1035" y="220" width="180" height="82" rx="18" fill="#ffffff" stroke="#cfcac0" stroke-width="2"/><text x="1053" y="262" fill="#111111" font-size="24" font-weight="600">Relay set</text><text x="1053" y="287" fill="#65615b" font-size="17">replaceable</text>
+    <rect x="850" y="450" width="180" height="82" rx="18" fill="#ffffff" stroke="#cfcac0" stroke-width="2"/><text x="868" y="490" fill="#111111" font-size="24" font-weight="600">Private channel</text><text x="868" y="517" fill="#65615b" font-size="17">encrypted terms</text>
+    <rect x="1050" y="450" width="190" height="82" rx="18" fill="#ffffff" stroke="#cfcac0" stroke-width="2"/><text x="1068" y="490" fill="#111111" font-size="24" font-weight="600">Driver client</text><text x="1068" y="517" fill="#65615b" font-size="17">local policy</text>
+    <line x1="1040" y1="261" x2="1035" y2="261" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/><text x="1000" y="203" text-anchor="middle" fill="#65615b" font-size="17">coarse signed intent</text>
+    <line x1="1197" y1="302" x2="1068" y2="450" stroke="#77736b" stroke-width="3" marker-end="url(#arrowMuted)"/><text x="1175" y="380" text-anchor="middle" fill="#65615b" font-size="17">local matching</text>
+    <line x1="892" y1="302" x2="892" y2="450" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/><text x="874" y="397" fill="#65615b" font-size="17">exact details</text>
+    <line x1="1030" y1="491" x2="1050" y2="491" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/>
+    <g><rect x="830" y="570" width="130" height="42" rx="14" fill="#e8e4db"/><text x="842" y="591" fill="#242321" font-size="18" font-weight="600">PUBLIC</text><text x="842" y="607" fill="#6c6862" font-size="13">coarse</text></g>
+    <g><rect x="975" y="570" width="130" height="42" rx="14" fill="#e8e4db"/><text x="987" y="591" fill="#242321" font-size="18" font-weight="600">PRIVATE</text><text x="987" y="607" fill="#6c6862" font-size="13">encrypted</text></g>
+    <g><rect x="1120" y="570" width="130" height="42" rx="14" fill="#e8e4db"/><text x="1132" y="591" fill="#242321" font-size="18" font-weight="600">PROOF</text><text x="1132" y="607" fill="#6c6862" font-size="13">bilateral</text></g>
+  </g>
+</svg>

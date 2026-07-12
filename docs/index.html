@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PactRide — The open protocol for ride coordination</title>
+  <meta name="description" content="PactRide is an Apache-2.0 licensed public protocol initiative with a fully documented founder vision and a pre-implementation machine-readable RFC for interoperable ride coordination.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#111111">
+  <link rel="canonical" href="https://wpgglabs.github.io/PactRide/">
+  <link rel="stylesheet" href="assets/styles.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PactRide">
+  <meta property="og:title" content="PactRide — The open protocol for ride coordination">
+  <meta property="og:description" content="A fully documented founder vision and pre-implementation RFC for rider–driver discovery, private negotiation, pickup proof, and portable evidence—without one company owning the coordination layer.">
+  <meta property="og:url" content="https://wpgglabs.github.io/PactRide/">
+  <meta property="og:image" content="https://wpgglabs.github.io/PactRide/assets/pactride-vision-social.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="PactRide: equal participants connected by a secure, non-central coordination path.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PactRide — The open protocol for ride coordination">
+  <meta name="twitter:description" content="Founder vision documented. An Apache-2.0 licensed, pre-implementation research RFC for interoperable ride coordination.">
+  <meta name="twitter:image" content="https://wpgglabs.github.io/PactRide/assets/pactride-vision-social.jpg">
+  <meta name="twitter:image:alt" content="PactRide: equal participants connected by a secure, non-central coordination path.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "PactRide — The open protocol for ride coordination",
+    "name": "PactRide",
+    "url": "https://wpgglabs.github.io/PactRide/",
+    "mainEntityOfPage": "https://wpgglabs.github.io/PactRide/",
+    "isBasedOn": "https://github.com/wpggLabs/PactRide",
+    "image": "https://wpgglabs.github.io/PactRide/assets/pactride-vision-social.jpg",
+    "description": "An Apache-2.0 licensed public protocol initiative with a fully documented founder vision and a pre-implementation machine-readable RFC for interoperable ride coordination.",
+    "license": "https://www.apache.org/licenses/LICENSE-2.0",
+    "author": {
+      "@type": "Organization",
+      "name": "wpggLabs"
+    },
+    "dateModified": "2026-07-11",
+    "keywords": "open mobility, rideshare, ride hailing, peer-to-peer, interoperability, Nostr, privacy, driver cooperative, Apache-2.0, transportation protocol"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="PactRide home">
+        <span class="brand-symbol" aria-hidden="true"><span></span><span></span></span>
+        <span class="brand-name">PactRide</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#why">Why</a>
+        <a href="#protocol">Protocol</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#stewardship">Stewardship</a>
+      </nav>
+      <a class="header-cta" href="https://github.com/wpggLabs/PactRide">View on GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-grid"></div>
+      <div class="hero-inner">
+        <div class="hero-copy-block">
+          <p class="kicker"><span class="pulse-dot"></span> Founder vision documented · Pre-implementation research RFC</p>
+          <h1>An open protocol<br>for rides.</h1>
+          <p class="hero-copy">PactRide explores a future where riders and drivers can discover each other, negotiate privately, verify pickup, and carry evidence between compatible applications—without one company owning the coordination layer or collecting a mandatory protocol commission.</p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="https://github.com/wpggLabs/PactRide/blob/main/FOUNDER_VISION.md">Read the completed vision <span aria-hidden="true">→</span></a>
+            <a class="button button-light" href="https://github.com/wpggLabs/PactRide/blob/main/PROTOCOL.md">Protocol draft</a>
+            <a class="button button-light" href="https://github.com/wpggLabs/PactRide/blob/main/STATUS.md">Current status</a>
+            <a class="button button-light" href="https://github.com/wpggLabs/PactRide/blob/main/examples/end-to-end-transcript.md">Follow one ride</a>
+          </div>
+          <div class="hero-proof" aria-label="PactRide project properties">
+            <div><strong>Documented</strong><span>Complete founder vision</span></div>
+            <div><strong>Open</strong><span>Apache-2.0 specification</span></div>
+            <div><strong>Unproven</strong><span>Independent clients required</span></div>
+          </div>
+        </div>
+
+        <div class="protocol-window" aria-label="Illustrative PactRide protocol exchange">
+          <div class="window-top">
+            <span>PactRide / exchange</span>
+            <span class="window-status">local verification</span>
+          </div>
+          <div class="exchange">
+            <div class="identity identity-rider">
+              <span class="identity-icon">R</span>
+              <div><strong>Rider client</strong><small>user-held key</small></div>
+            </div>
+            <div class="event event-public">
+              <span class="event-index">01</span>
+              <div><strong>Coarse request published</strong><small>signed · TTL-bounded · relay-redundant</small></div>
+              <span class="event-state">public</span>
+            </div>
+            <div class="event event-private">
+              <span class="event-index">02</span>
+              <div><strong>Terms negotiated</strong><small>exact pickup · price · vehicle</small></div>
+              <span class="event-state">encrypted</span>
+            </div>
+            <div class="event event-proof">
+              <span class="event-index">03</span>
+              <div><strong>Pickup verified</strong><small>QR · phrase · nearby handshake</small></div>
+              <span class="event-state">bilateral</span>
+            </div>
+            <div class="event event-receipt">
+              <span class="event-index">04</span>
+              <div><strong>Receipt countersigned</strong><small>portable evidence · local history</small></div>
+              <span class="event-state">complete</span>
+            </div>
+            <div class="identity identity-driver">
+              <span class="identity-icon">D</span>
+              <div><strong>Driver client</strong><small>independent implementation</small></div>
+            </div>
+          </div>
+          <div class="window-note">Illustrative protocol flow. PactRide is not a live transportation service.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="statement" id="why">
+      <p class="section-kicker">The premise</p>
+      <h2>Software should coordinate the ride.<br><em>It should not own the relationship.</em></h2>
+      <div class="statement-grid">
+        <p>Ride-hailing platforms proved that software can match independent drivers and riders at scale. They also placed discovery, identity, pricing, reputation, and access to work behind one operator.</p>
+        <p>PactRide asks which parts can become shared, interoperable infrastructure—closer to email or the web than a marketplace controlled by one company.</p>
+      </div>
+    </section>
+
+    <section class="principles-section">
+      <div class="section-heading">
+        <p class="section-kicker">Design constraints</p>
+        <h2>Protocol before platform.</h2>
+        <p>Six rules keep PactRide from becoming the centralized service it was created to avoid.</p>
+      </div>
+      <div class="principle-list">
+        <article><span>01</span><h3>User-held identity</h3><p>Participants control their keys, local history, preferences, and portable evidence.</p></article>
+        <article><span>02</span><h3>Private by progression</h3><p>Public discovery is coarse and temporary. Exact details appear only after intentional encrypted exchange.</p></article>
+        <article><span>03</span><h3>Replaceable infrastructure</h3><p>Relays, maps, payment methods, and community services remain substitutable.</p></article>
+        <article><span>04</span><h3>Plural trust</h3><p>Communities evaluate evidence under local policy instead of accepting one global platform score.</p></article>
+        <article><span>05</span><h3>No protocol tax</h3><p>Optional services may charge transparent fees; base protocol access never requires a per-ride commission.</p></article>
+        <article><span>06</span><h3>Interoperability proof</h3><p>The protocol is not credible until independently written clients complete the same ride flow.</p></article>
+      </div>
+    </section>
+
+    <section class="protocol-section" id="protocol">
+      <div class="section-heading inverse">
+        <p class="section-kicker">Reference architecture</p>
+        <h2>Public enough to discover.<br>Private enough to coordinate.</h2>
+      </div>
+
+      <div class="system-map">
+        <div class="system-node system-client">
+          <span class="node-label">Client A</span>
+          <strong>Rider</strong>
+          <small>keys · preferences · local trust</small>
+        </div>
+        <div class="system-path system-path-public">
+          <span>coarse signed intent</span>
+          <div class="path-line"><i></i></div>
+          <div class="relay-cloud">
+            <span>Relay 1</span><span>Relay 2</span><span>Community</span>
+          </div>
+          <div class="path-line reverse"><i></i></div>
+          <span>client-side discovery</span>
+        </div>
+        <div class="system-node system-client">
+          <span class="node-label">Client B</span>
+          <strong>Driver</strong>
+          <small>keys · filters · local ranking</small>
+        </div>
+        <div class="private-rail">
+          <span class="rail-label">End-to-end encrypted</span>
+          <strong>Offer → counter → matching acceptance proofs → exact pickup → ride state</strong>
+        </div>
+        <div class="proof-rail">
+          <span class="rail-label">Physical proximity</span>
+          <strong>QR / short phrase / nearby handshake → bilateral pickup and completion evidence</strong>
+        </div>
+      </div>
+
+      <div class="architecture-notes">
+        <div><span>Relay role</span><p>Distribute events. Never become the mandatory dispatcher or source of truth.</p></div>
+        <div><span>Client role</span><p>Validate proofs, TTL, duplicates, state conflicts, and local trust policy.</p></div>
+        <div><span>Nearby role</span><p>Verify pickup and preserve limited state during outages—not replace citywide internet discovery.</p></div>
+      </div>
+      <div class="hero-actions">
+        <a class="button button-light" href="https://github.com/wpggLabs/PactRide/blob/main/IMPLEMENTATION_GUIDE.md">Implementer guide</a>
+        <a class="button button-light" href="https://github.com/wpggLabs/PactRide/blob/main/NOSTR_PROFILE.md">Nostr profile</a>
+        <a class="button button-light" href="https://github.com/wpggLabs/PactRide/blob/main/RESPONSIBILITY_BOUNDARIES.md">Responsibility boundaries</a>
+      </div>
+    </section>
+
+    <section class="boundaries-section">
+      <div class="section-heading">
+        <p class="section-kicker">Deliberate boundaries</p>
+        <h2>What PactRide refuses to pretend.</h2>
+      </div>
+      <div class="boundary-grid">
+        <div><span class="boundary-mark">×</span><strong>No blockchain requirement</strong><p>Signed bilateral state does not need global consensus.</p></div>
+        <div><span class="boundary-mark">×</span><strong>No mandatory token or fee</strong><p>Settlement remains optional and method-neutral.</p></div>
+        <div><span class="boundary-mark">×</span><strong>No canonical server</strong><p>Infrastructure providers must be replaceable.</p></div>
+        <div><span class="boundary-mark">×</span><strong>No fake safety claim</strong><p>Cryptographic proof does not prove identity, conduct, payment, or physical safety.</p></div>
+        <div><span class="boundary-mark">×</span><strong>No Bluetooth fantasy</strong><p>Nearby radio is useful resilience, not reliable citywide dispatch by itself.</p></div>
+        <div><span class="boundary-mark">×</span><strong>No single official app</strong><p>Compatibility matters more than one polished interface.</p></div>
+      </div>
+    </section>
+
+    <section class="roadmap-section" id="roadmap">
+      <div class="section-heading">
+        <p class="section-kicker">Evidence-driven roadmap</p>
+        <h2>Each phase must prove the next one is justified.</h2>
+      </div>
+      <div class="roadmap-line">
+        <article class="phase"><span>Phase 0</span><h3>RFC foundation</h3><p>The founder-authored documentation is complete; substantive external review and maintainer-diversity exit criteria remain open.</p><small>Vision documented</small></article>
+        <article class="phase phase-active"><span>Phase 1</span><h3>Protocol core</h3><p>Initial event-family schemas, Nostr transport rules, and executable lifecycle fixtures exist; independent cross-language and relay evidence remains.</p><small>Current evidence work</small></article>
+        <article class="phase"><span>Phase 2</span><h3>Independent clients</h3><p>Two independently written command-line clients complete one shared transcript across test relays.</p><small>Next proof</small></article>
+        <article class="phase"><span>Phase 3+</span><h3>Mobile and pilot</h3><p>Reference clients and any bounded community experiment remain gated by interoperability, safety, legal, and operational evidence.</p><small>Not started</small></article>
+      </div>
+    </section>
+
+    <section class="statement" id="commonpact">
+      <p class="section-kicker">Protocol family</p>
+      <h2>PactRide is self-contained.<br><em>CommonPact is later abstraction research.</em></h2>
+      <div class="statement-grid">
+        <p>The intended CommonPact layer may cover identity, discovery, private negotiation, bilateral agreement, lifecycle events, and portable evidence.</p>
+        <p>PactRide does not depend on it. Extraction requires a substantially different second profile, independent implementation evidence, explicit migration rules, and preservation of transportation-specific safety requirements.</p>
+      </div>
+      <div class="hero-actions">
+        <a class="button button-light" href="https://github.com/wpggLabs/PactRide/blob/main/COMMONPACT_RELATIONSHIP.md">Read the relationship and mapping</a>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <div class="section-heading compact">
+        <p class="section-kicker">The foundation</p>
+        <h2>Complete enough to be challenged.</h2>
+      </div>
+      <div class="docs-grid">
+        <a href="https://github.com/wpggLabs/PactRide/blob/main/FOUNDER_VISION.md"><span>01</span><div><strong>Founder vision</strong><p>The bounded record of what is fully documented and what remains unproven.</p></div><i>↗</i></a>
+        <a href="https://github.com/wpggLabs/PactRide/blob/main/STATUS.md"><span>02</span><div><strong>Current status</strong><p>What exists, what remains unproven, and the immediate gates.</p></div><i>↗</i></a>
+        <a href="https://github.com/wpggLabs/PactRide/blob/main/PROTOCOL.md"><span>03</span><div><strong>Protocol</strong><p>Event envelope, validation, versioning, proofs, and compatibility.</p></div><i>↗</i></a>
+        <a href="https://github.com/wpggLabs/PactRide/blob/main/ARCHITECTURE.md"><span>04</span><div><strong>Architecture</strong><p>Components, data boundaries, transports, and deployment modes.</p></div><i>↗</i></a>
+        <a href="https://github.com/wpggLabs/PactRide/blob/main/THREAT_MODEL.md"><span>05</span><div><strong>Threat model</strong><p>Location abuse, malicious peers, Sybil attacks, and infrastructure failure.</p></div><i>↗</i></a>
+        <a href="https://github.com/wpggLabs/PactRide/blob/main/TRUST_AND_REPUTATION.md"><span>06</span><div><strong>Trust model</strong><p>Portable evidence without a universal platform score.</p></div><i>↗</i></a>
+        <a href="https://github.com/wpggLabs/PactRide/blob/main/GOVERNANCE.md"><span>07</span><div><strong>Governance</strong><p>RFC decisions, conflicts, maintainership, and succession.</p></div><i>↗</i></a>
+        <a href="https://github.com/wpggLabs/PactRide/blob/main/COMMONPACT_RELATIONSHIP.md"><span>08</span><div><strong>CommonPact boundary</strong><p>Candidate core mapping, extraction criteria, and PactRide independence.</p></div><i>↗</i></a>
+        <a href="https://github.com/wpggLabs/PactRide/blob/main/LICENSING.md"><span>09</span><div><strong>Licensing</strong><p>Apache-2.0 specification rights and the boundary for future official software.</p></div><i>↗</i></a>
+        <a href="https://github.com/wpggLabs/PactRide/blob/main/MAINTENANCE.md"><span>10</span><div><strong>Maintenance policy</strong><p>Limited capacity, inactivity, archival, and restart conditions.</p></div><i>↗</i></a>
+      </div>
+    </section>
+
+    <section class="sustainability-section" id="sustainability">
+      <div class="sustainability-copy">
+        <p class="section-kicker">Open and sustainable</p>
+        <h2>Open specification. Optional commercial value.</h2>
+        <p>The current specification repository uses Apache-2.0. Commercial and independent implementations are allowed, and users do not owe PactRide a royalty or revenue share merely for implementing the protocol.</p>
+        <p><strong>Sustainability:</strong> stewardship can be funded through grants, sponsorships, consulting, managed infrastructure, audits, support, training, authorized certification, and official products. Future official software may use separately published license terms in separate repositories when PactRide controls the required rights.</p>
+        <a class="text-link" href="https://github.com/wpggLabs/PactRide/blob/main/LICENSING.md">Read the licensing and commercial boundary <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="sustainability-model">
+        <div><span>Specification</span><strong>Apache-2.0</strong><p>Use, modify, distribute, and commercialize subject to the standard license conditions.</p></div>
+        <div><span>Protocol</span><strong>Open adoption</strong><p>Build compatible clients and infrastructure without requesting permission or paying a royalty.</p></div>
+        <div><span>Optional value</span><strong>Products and services</strong><p>Hosting, support, audits, integrations, training, official software, grants, and authorized certification.</p></div>
+      </div>
+    </section>
+
+    <section class="status-section">
+      <div class="status-card">
+        <div>
+          <p class="section-kicker">Current status</p>
+          <h2>Founder vision documented.<br>Not a ride service.</h2>
+        </div>
+        <p>PactRide provides a complete initial founder vision, protocol drafts, strict schemas, test vectors, automated validation, threat analysis, governance, licensing boundaries, and contribution pathways. It does not provide rider or driver applications, identity verification, emergency response, payment protection, insurance, independent interoperability proof, or production safety guarantees. It is maintained at limited capacity and has no promised launch date.</p>
+      </div>
+    </section>
+
+    <section class="contribute-section" id="stewardship">
+      <div>
+        <p class="section-kicker">Stewardship and continuity</p>
+        <h2>Seeking maintainers and credible partners.</h2>
+        <p><code>wpggLabs</code> is the current maintainer. The founder maintains the completed initial vision, repository, website, and public record, but is not attempting to build or operate a production ride network alone. Major implementation should resume only with committed technical maintainers, funded research, or a credible bounded pilot partner.</p>
+      </div>
+      <div class="contribute-actions">
+        <a class="button button-dark" href="https://github.com/wpggLabs/PactRide/blob/main/MAINTAINERS.md">Maintainer policy <span aria-hidden="true">→</span></a>
+        <a class="button button-outline" href="https://github.com/wpggLabs/PactRide/blob/main/MAINTENANCE.md">Maintenance posture</a>
+        <a class="button button-outline" href="https://github.com/wpggLabs/PactRide/issues/new">Propose a partnership</a>
+      </div>
+    </section>
+
+    <section class="contribute-section" id="contribute">
+      <div>
+        <p class="section-kicker">Open participation</p>
+        <h2>Make the proposal harder to break.</h2>
+        <p>PactRide needs protocol engineers, security researchers, mobile developers, accessibility specialists, drivers, riders, cooperative operators, universities, nonprofits, and informed critics.</p>
+      </div>
+      <div class="contribute-actions">
+        <a class="button button-dark" href="https://github.com/wpggLabs/PactRide/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">Good first issues <span aria-hidden="true">→</span></a>
+        <a class="button button-outline" href="https://github.com/wpggLabs/PactRide/discussions">Join discussions</a>
+        <a class="button button-outline" href="https://github.com/wpggLabs/PactRide/blob/main/CONTRIBUTING.md">Contribution guide</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">
+      <span class="brand-symbol" aria-hidden="true"><span></span><span></span></span>
+      <div><strong>PactRide</strong><p>Open infrastructure for interoperable ride coordination.</p></div>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/wpggLabs/PactRide">Repository</a>
+      <a href="https://github.com/wpggLabs/PactRide/blob/main/FOUNDER_VISION.md">Founder vision</a>
+      <a href="https://github.com/wpggLabs/PactRide/blob/main/STATUS.md">Status</a>
+      <a href="https://github.com/wpggLabs/PactRide/blob/main/MAINTAINERS.md">Maintainers</a>
+      <a href="https://github.com/wpggLabs/PactRide/blob/main/SECURITY.md">Security</a>
+      <a href="https://github.com/wpggLabs/PactRide/blob/main/LICENSE">Apache-2.0</a>
+    </div>
+    <p class="footer-status">Founder vision documented · Limited-capacity pre-implementation research · Apache-2.0 · 2026</p>
+  </footer>
+</body>
+</html>

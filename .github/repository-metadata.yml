@@ -1,0 +1,30 @@
+# Canonical GitHub repository settings for maintainers.
+description: >-
+  Open ride-coordination protocol and first CommonPact source profile for direct
+  rider-driver discovery, private negotiation, pickup proof, and portable evidence.
+homepage: https://wpgglabs.github.io/PactRide/
+topics:
+  - pactride
+  - commonpact
+  - ride-coordination
+  - rideshare
+  - ride-hailing
+  - open-mobility
+  - transportation
+  - peer-to-peer
+  - open-protocol
+  - interoperability
+  - nostr
+  - privacy
+  - driver-cooperative
+  - digital-public-infrastructure
+  - research-rfc
+  - apache-2-0
+social_preview: docs/assets/social-preview.png
+family:
+  name: CommonPact
+  role: source-profile
+  core: https://github.com/wpggLabs/CommonPact
+  runtime_dependency: false
+  wire_compatibility_claim: false
+status: pre-implementation-research-rfc

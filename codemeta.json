@@ -1,0 +1,40 @@
+{
+  "@context": "https://w3id.org/codemeta/3.0",
+  "@type": "SoftwareSourceCode",
+  "name": "PactRide",
+  "description": "Open ride-coordination protocol and first CommonPact source profile for direct rider-driver discovery, private negotiation, pickup proof, and portable evidence.",
+  "codeRepository": "https://github.com/wpggLabs/PactRide",
+  "issueTracker": "https://github.com/wpggLabs/PactRide/issues",
+  "url": "https://wpgglabs.github.io/PactRide/",
+  "license": "https://spdx.org/licenses/Apache-2.0",
+  "version": "0.1.0-rfc",
+  "developmentStatus": "concept",
+  "author": {
+    "@type": "Organization",
+    "name": "wpggLabs"
+  },
+  "keywords": [
+    "pactride",
+    "commonpact",
+    "ride-coordination",
+    "rideshare",
+    "ride-hailing",
+    "open-mobility",
+    "transportation",
+    "peer-to-peer",
+    "open-protocol",
+    "interoperability",
+    "nostr",
+    "privacy",
+    "driver-cooperative",
+    "research-rfc"
+  ],
+  "isPartOf": {
+    "@type": "SoftwareSourceCode",
+    "name": "CommonPact protocol family",
+    "url": "https://github.com/wpggLabs/CommonPact"
+  },
+  "relatedLink": [
+    "https://github.com/wpggLabs/PactRide/blob/main/COMMONPACT_RELATIONSHIP.md"
+  ]
+}
